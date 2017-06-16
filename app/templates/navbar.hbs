@@ -1,0 +1,17 @@
+<header>
+  <nav class="navbar">
+    <div class="navbar-fluid">
+      <ul>
+        {{#link-to 'index' tagName="li"}}<a href="#">Home</a>{{/link-to}}
+        {{#link-to 'labels' tagName="li"}}<a href="#">Labels</a>{{/link-to}}
+        {{#link-to 'artists' tagName="li"}}<a href="#">Artists</a>{{/link-to}}
+        {{#link-to 'albums' tagName="li"}}<a href="#">Albums</a>{{/link-to}}
+        {{#link-to 'songs' tagName="li"}}<a href="#">Songs</a>{{/link-to}}
+      </ul>
+      <form>
+        <input type="text"/>
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+</header>
