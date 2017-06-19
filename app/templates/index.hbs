@@ -1,1 +1,15 @@
+<h1>Music App</h1>
+<h2>Enter information here:</h2>
+<form class="" action="index.html" method="post">
+  <label for="labelName">Label:</label>
+  {{input type="text" name="labelName" value="labelName"}}
+  <label for="artistName">Artist:</label>
+  {{input type="text" name="artistName" value="artistName"}}
+  <label for="albumName">Album:</label>
+  {{input type="text" name="albumName" value="albumName"}}
+  <label for="songName">Song:</label>
+  {{input type="text" name="songName" value="songName"}}
+  <button {{action="saveEntry"}}>Submit</button>
+</form>
+
 {{outlet}}
