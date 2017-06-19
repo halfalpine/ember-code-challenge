@@ -1,11 +1,11 @@
 <div class="jumbo">
   <h1>My Music</h1>
   <p>Basic info about the service goes here.</p>
-  <form class="" action="index.html" method="post">
-    <input type="text" name="label" value="">
-    <input type="text" name="artist" value="">
-    <input type="text" name="album" value="">
-    <input type="text" name="song" value="">
-    <button type="button" name="button">Add</button>
+  <form>
+    {{input value=newLabel}}
+    {{input value=newArtist}}
+    {{input value=newAlbum}}
+    {{input value=newSong}}
+    <button type="button" {{action 'createEntry'}}>Add</button>
   </form>
 </div>
