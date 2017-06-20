@@ -7,11 +7,25 @@ export default Ember.Route.extend({
   },
 
   actions: {
+      //
+      // createEntry() {
+      //   let controller = this.store.get('controller');
+      //   let newLabel = this.store.createRecord('label', {
+      //     name: controller.get('newLabel'),
+      //     artist: []
+      //   }):
+      //
+      //   newLabel.save().then(() => {
+      //     this.store.createRecord
+      //   })
+      // }
+
     createEntry() {
+      let route = this;
       let controller = this.get('controller');
       let label = this.store.createRecord('label', {
         name: controller.get('newLabel'),
-        artist: this.store.createRecord('artist', {
+        artist: route.store.createRecord('artist', {
           name: controller.get('newArtist'),
           album: this.store.createRecord('album', {
             name: controller.get('newAlbum'),
@@ -27,6 +41,7 @@ export default Ember.Route.extend({
         controller.set('newArtist', '');
         controller.set('newAlbum', '');
         controller.set('newSong', '');
+        // route.transitionTo('artists')
       });
 
     }
