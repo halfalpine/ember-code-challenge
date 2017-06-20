@@ -1,11 +1,33 @@
-<div class="jumbo">
-  <h1>My Music</h1>
-  <p>Basic info about the service goes here.</p>
-  <form>
-    {{input value=newLabel}}
-    {{input value=newArtist}}
-    {{input value=newAlbum}}
-    {{input value=newSong}}
-    <button type="button" {{action 'createEntry'}}>Add</button>
-  </form>
+<div class="">
+  <div class="jumbotron">
+    <h1>My Music Catalog</h1>
+    <p>A service for saving music information.</p>
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-xs-12 col-lg-5 well well-lg">
+      <form>
+        <div class="form-group">
+          <label for="label">Label</label>
+          {{input class="form-control" value=newLabel id="label"}}
+        </div>
+        <div class="form-group">
+          <label for="artist">Artist</label>
+          {{input class="form-control" value=newArtist id="artist"}}
+        </div>
+        <div class="form-group">
+          <label for="album">Album</label>
+          {{input class="form-control" value=newAlbum id="album"}}
+        </div>
+        <div class="form-group">
+          <label for="song">Song</label>
+          {{input class="form-control" value=newSong id="song"}}
+        </div>
+        <button type="button" {{action 'createEntry'}}>Add</button>
+      </form>
+
+    </div>
+    <div class="col-md-4 col-lg-5">
+      <h2>Information that you save will be tracked in your music database. What would you like to add?</h2>
+    </div>
+  </div>
 </div>
