@@ -1,22 +1,38 @@
 <div>
   <h2>List of Labels</h2>
+  <div class="well well-sm">
+    <form>
+      <label for="name">Add a label:</label>
+      {{input value=newLabel}}
+      <button {{action 'saveNew'}} class="btn btn-success btn-sm">Save</button>
+    </form>
+  </div>
   <ul>
     {{#each model as |label|}}
       <li>
         {{#if label.isEditing}}
+          <div class="well well-sm">
           <form {{action 'save' label on='submit'}}>
             {{input value=label.name}}
-            <button type='submit'>Save</button>
-            <button {{action 'cancel' label}}>Cancel</button>
+            <button type='submit' class="btn btn-success btn-sm">Save</button>
+            <button {{action 'cancel' label}} class="btn btn-danger btn-sm">Cancel</button>
           </form>
+        </div>
         {{else}}
-          {{label.name}}
-          <button {{action 'edit' label}}>Edit</button>
-          <button {{action 'delete' label}}>Delete</button>
+        <div>
+          <p>{{label.name}}</p>
+          <p>Artists:</p>
+          <ul>
+            {{#each label.artists as |artist|}}
+            <li>{{artist.name}}</li>
+            {{/each}}
+          </ul>
+          <button {{action 'edit' label}} class="btn btn-primary btn-sm">Edit</button>
+          <button {{action 'delete' label}} class="btn btn-danger btn-sm">Delete</button>
+        </div>
         {{/if}}
       </li>
     {{/each}}
   </ul>
-  {
 </div>
 {{outlet}}

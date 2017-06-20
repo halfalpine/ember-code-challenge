@@ -21,9 +21,17 @@ export default Ember.Route.extend({
       label.destroyRecord();
     },
 
-    save(label) {
+    saveEdit(label) {
       label.set('isEditing', false);
       label.save();
+    },
+
+    saveNew() {
+      let controller = this.get('controller');
+      let newLabel = this.store.createRecord('label', {
+        name: controller.get('newLabel')
+      });
+      return newLabel.save().then(() => controller.set('newLabel', ''));
     }
 
   }
