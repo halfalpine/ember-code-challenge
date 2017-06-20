@@ -1,7 +1,12 @@
 <h2>List of Albums</h2>
   <ul>
     {{#each model as |album|}}
-      <li>{{album.name}}</li>
+      <li>
+        {{album.name}}
+        <button {{action 'edit' album}}>Edit</button>
+        <button {{action 'delete' album}}>Delete</button>
+        
+      </li>
     {{/each}}
   </ul>
 {{outlet}}

@@ -2,7 +2,19 @@
   <h2>List of Labels</h2>
   <ul>
     {{#each model as |label|}}
-      <li>{{label.name}}</li>
+      <li>
+        {{#if label.isEditing}}
+          <form {{action 'save' label on='submit'}}>
+            {{input value=label.name}}
+            <button type='submit'>Save</button>
+            <button {{action 'cancel' label}}>Cancel</button>
+          </form>
+        {{else}}
+          {{label.name}}
+          <button {{action 'edit' label}}>Edit</button>
+          <button {{action 'delete' label}}>Delete</button>
+        {{/if}}
+      </li>
     {{/each}}
   </ul>
   {
