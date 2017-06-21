@@ -1,7 +1,32 @@
-<h2>List of Songs</h2>
+<div>
+  <h2>List of Songs</h2>
+  <div class="well well-sm">
+    <form>
+      <label for="name">Add a song:</label>
+      {{input value=newSong}}
+      <button {{action 'saveNew'}} class="btn btn-success btn-sm">Save</button>
+    </form>
+  </div>
   <ul>
     {{#each model as |song|}}
-      <li>{{song.name}}</li>
+      <li>
+        {{#if song.isEditing}}
+          <div class="well well-sm">
+          <form {{action 'saveEdit' song on='submit'}}>
+            {{input value=song.name}}
+            <button type='submit' class="btn btn-success btn-sm">Save</button>
+            <button {{action 'cancel' song}} class="btn btn-danger btn-sm">Cancel</button>
+          </form>
+        </div>
+        {{else}}
+        <div>
+          <p>{{song.name}}</p>
+          <button {{action 'edit' song}} class="btn btn-primary btn-sm">Edit</button>
+          <button {{action 'delete' song}} class="btn btn-danger btn-sm">Delete</button>
+        </div>
+        {{/if}}
+      </li>
     {{/each}}
   </ul>
+</div>
 {{outlet}}
