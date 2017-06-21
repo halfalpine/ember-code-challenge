@@ -12,7 +12,7 @@
       <li>
         {{#if label.isEditing}}
           <div class="well well-sm">
-          <form {{action 'save' label on='submit'}}>
+          <form {{action 'saveEdit' label on='submit'}}>
             {{input value=label.name}}
             <button type='submit' class="btn btn-success btn-sm">Save</button>
             <button {{action 'cancel' label}} class="btn btn-danger btn-sm">Cancel</button>
